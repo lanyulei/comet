@@ -1,0 +1,64 @@
+{
+	"name": "comet",
+	"version": "v0.0.1",
+	"description": "一款基于 Tekton 云原生的 CI/CD 系统。",
+	"author": "lanyulei",
+	"license": "MIT",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/"
+	},
+	"dependencies": {
+		"@element-plus/icons-vue": "^2.3.1",
+		"axios": "^1.6.2",
+		"element-plus": "^2.4.4",
+		"js-cookie": "^3.0.5",
+		"mitt": "^3.0.1",
+		"nprogress": "^0.2.0",
+		"pinia": "^2.1.7",
+		"qrcodejs2-fixes": "^0.0.2",
+		"qs": "^6.11.2",
+		"screenfull": "^6.0.2",
+		"sortablejs": "^1.15.1",
+		"vue": "^3.3.13",
+		"vue-clipboard3": "^2.0.0",
+		"vue-grid-layout": "^2.4.0",
+		"vue-i18n": "^9.8.0",
+		"vue-router": "^4.2.5"
+	},
+	"devDependencies": {
+		"@types/node": "^20.10.5",
+		"@typescript-eslint/eslint-plugin": "^6.15.0",
+		"@typescript-eslint/parser": "^6.15.0",
+		"@vitejs/plugin-vue": "^4.5.2",
+		"eslint-plugin-vue": "^9.19.2",
+		"prettier": "^3.1.1",
+		"sass": "^1.69.5",
+		"typescript": "^5.3.3",
+		"vite": "^5.0.10",
+		"vite-plugin-cdn-import": "^0.3.5",
+		"vite-plugin-compression": "^0.5.1",
+		"vite-plugin-vue-setup-extend-plus": "^0.1.0",
+		"vue-eslint-parser": "^9.3.2"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	],
+	"engines": {
+		"node": ">=16.0.0",
+		"npm": ">= 7.0.0"
+	},
+	"keywords": [
+		"vue",
+		"vue3",
+		"element-ui",
+		"element-plus"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lanyulei/comet.git"
+	}
+}
