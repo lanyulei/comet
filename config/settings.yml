@@ -1,0 +1,35 @@
+server:
+  host: localhost
+  port: 8020
+  mode: dev
+ssl:
+  enable: false
+  key: keystring
+  pem: temp/pem.pem
+log:
+  level: debug
+  maxSize: 1024
+  maxAge: 30
+  maxBackups: 10
+  localtime: 1
+  compress: 1
+  path: log/comet.log
+db:
+  type: postgres
+  dsn: host=localhost user=postgres password=123456 dbname=comet port=5432 sslmode=disable TimeZone=Asia/Shanghai
+  maxOpenConn: 20000
+  maxIdleConn: 0
+  connMaxLifetime: 60
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: 123456
+  db: 4
+jwt:
+  expires: 60
+  secret: 7c61aa49bd124736917207eb960cede9
+  issuer: comet
+nebula:
+  url: http://localhost:8000
+kubernetes:
+  configPath: /Users/mac/lanyulei/project/golang/comet/config
