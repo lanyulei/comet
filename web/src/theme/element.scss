@@ -55,6 +55,12 @@
 	word-break: break-all;
 }
 
+.el-alert--info {
+	border-color: #abc8ff;
+	color: #5a5a5e !important;
+	background-color: #f0f8ff !important;
+}
+
 /* Message 消息提示
 ------------------------------- */
 .el-message {
@@ -329,4 +335,13 @@
 		height: 100%;
 		overflow: auto;
 	}
+}
+
+// ------
+.el-card__body {
+	padding: 15px;
+}
+
+div.el-table__header-wrapper > table > thead > tr > th.is-leaf {
+	background-color: #f5f7fa;
 }
