@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"github.com/lanyulei/comet/common/router"
 	"github.com/lanyulei/comet/pkg/config"
-	"github.com/lanyulei/comet/pkg/db"
+	"github.com/lanyulei/comet/pkg/kubernetes/client"
+	"github.com/lanyulei/comet/pkg/kubernetes/request"
 	"github.com/lanyulei/comet/pkg/logger"
 	"github.com/lanyulei/comet/pkg/redis"
 	"github.com/lanyulei/comet/pkg/tools"
@@ -49,10 +50,13 @@ func setup() {
 	logger.Setup()
 
 	// 数据库配置
-	db.Setup()
+	//db.Setup()
 
 	// Redis 链接
 	//redis.Setup()
+
+	// 加载 kubernetes 配置
+	client.NewClients()
 }
 
 func run() (err error) {
@@ -64,9 +68,14 @@ func run() (err error) {
 	r := gin.Default()
 	router.Setup(r)
 
+	h := request.BuildHandlerChain(r)
+	if h == nil {
+		h = r
+	}
+
 	srv := &http.Server{
 		Addr:    fmt.Sprintf("%s:%d", viper.GetString("server.host"), viper.GetInt("server.port")),
-		Handler: r,
+		Handler: h,
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
