@@ -11,7 +11,6 @@ import (
 	"k8s.io/apiserver/pkg/endpoints/handlers/responsewriters"
 	"k8s.io/apiserver/pkg/endpoints/request"
 	"k8s.io/client-go/rest"
-	"k8s.io/klog/v2"
 	"net/http"
 	"net/url"
 )
@@ -42,7 +41,7 @@ func WithKubeAPIServer(next http.Handler, config *rest.Config) http.Handler {
 	kubeAPIServer, _ := url.Parse(config.Host)
 	transport, err := rest.TransportFor(config)
 	if err != nil {
-		klog.Errorf("Unable to create transport from rest.Config: %v", err)
+		logger.Errorf("Unable to create transport from rest.Config: %v", err)
 		return next
 	}
 	return &kubeAPIProxy{
