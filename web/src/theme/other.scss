@@ -82,3 +82,13 @@
 		}
 	}
 }
+
+.list-button-class {
+	.el-button--small {
+		padding: 5px 0;
+	}
+	.el-button:focus-visible {
+		outline: none;
+		outline-offset: 0;
+	}
+}

@@ -52,7 +52,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 				name: 'home',
 				component: () => import('/@/views/home/index.vue'),
 				meta: {
-					title: 'message.router.home',
+					title: 'Home',
 					isLink: '',
 					isHide: false,
 					isKeepAlive: true,
@@ -68,7 +68,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 				component: () => import('/@/layout/routerView/parent.vue'),
 				redirect: '/task/index',
 				meta: {
-					title: '任务',
+					title: 'Tasks',
 					isLink: '',
 					isHide: false,
 					isKeepAlive: true,
@@ -83,7 +83,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 						name: 'taskIndex',
 						component: () => import('/@/views/task/index.vue'),
 						meta: {
-							title: '任务管理',
+							title: 'Task',
 							isLink: '',
 							isHide: false,
 							isKeepAlive: true,
@@ -94,11 +94,11 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 						},
 					},
 					{
-						path: '/task/step-template',
-						name: 'TaskStepTemplate',
-						component: () => import('/@/views/task/stepTemplate.vue'),
+						path: '/task/runs',
+						name: 'TaskRuns',
+						component: () => import('/@/views/task/runs.vue'),
 						meta: {
-							title: '步骤模板',
+							title: 'TaskRun',
 							isLink: '',
 							isHide: false,
 							isKeepAlive: true,
