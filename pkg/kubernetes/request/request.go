@@ -60,6 +60,19 @@ func (k kubeAPIProxy) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	req.Header.Del("Authorization")
 	httpProxy := proxy.NewUpgradeAwareHandler(&s, k.transport, true, false, &responder{})
 	httpProxy.UpgradeTransport = proxy.NewUpgradeRequestRoundTripper(k.transport, k.transport)
+
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Length, Content-Type, Authorization")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, HEAD")
+	w.Header().Set("Access-Control-Allow-Credentials", "true")
+	w.Header().Set("Access-Control-Expose-Headers", "Content-Length")
+	w.Header().Set("Access-Control-Max-Age", "43200")
+
+	if req.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	httpProxy.ServeHTTP(w, req)
 }
 
