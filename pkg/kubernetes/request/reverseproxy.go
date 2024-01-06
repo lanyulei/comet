@@ -59,7 +59,7 @@ func joinURLPath(a, b *url.URL) (path, rawpath string) {
 	return a.Path + b.Path, apath + bpath
 }
 
-// 重写请求返回格式
+// modifyResponseFunc Rewrite request return format
 func modifyResponseFunc(res *http.Response) error {
 	var (
 		payloadMap map[string]interface{}
