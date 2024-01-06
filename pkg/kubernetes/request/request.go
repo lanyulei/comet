@@ -52,14 +52,14 @@ func WithKubeAPIServer(next http.Handler, config *rest.Config) http.Handler {
 	}
 }
 
-func (k kubeAPIProxy) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+func (k *kubeAPIProxy) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	s := *req.URL
 	s.Host = k.kubeAPIServer.Host
 	s.Scheme = k.kubeAPIServer.Scheme
 
 	// make sure we don't override kubernetes's authorization
 	req.Header.Del("Authorization")
-	httpProxy := proxy.NewUpgradeAwareHandler(&s, k.transport, true, false, &responder{})
+	httpProxy := NewUpgradeAwareHandler(&s, k.transport, true, false, &responder{})
 	httpProxy.UpgradeTransport = proxy.NewUpgradeRequestRoundTripper(k.transport, k.transport)
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
