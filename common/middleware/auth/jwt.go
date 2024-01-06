@@ -1,8 +1,10 @@
 package auth
 
 import (
-	"github.com/lanyulei/comet/pkg/jwtauth"
-	"github.com/lanyulei/comet/pkg/tools/response"
+	"comet/pkg/respstatus"
+	"github.com/lanyulei/toolkit/jwtauth"
+	"github.com/lanyulei/toolkit/response"
+	"github.com/spf13/viper"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -13,7 +15,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 	return func(c *gin.Context) {
 		authHeader := c.Request.Header.Get("Authorization")
 		if authHeader == "" {
-			response.Error(c, nil, response.AuthorizationNullError)
+			response.Error(c, nil, respstatus.AuthorizationNullError)
 			c.Abort()
 			return
 		}
@@ -21,15 +23,15 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		// 按空格分割
 		parts := strings.SplitN(authHeader, " ", 2)
 		if !(len(parts) == 2 && parts[0] == "Bearer") {
-			response.Error(c, nil, response.AuthorizationFormatError)
+			response.Error(c, nil, respstatus.AuthorizationFormatError)
 			c.Abort()
 			return
 		}
 
 		// parts[1]是获取到的tokenString，我们使用之前定义好的解析JWT的函数来解析它
-		mc, err := jwtauth.ParseToken(parts[1])
+		mc, err := jwtauth.ParseToken(parts[1], viper.GetString("jwt.secret"))
 		if err != nil {
-			response.Error(c, err, response.InvalidTokenError)
+			response.Error(c, err, respstatus.InvalidTokenError)
 			c.Abort()
 			return
 		}

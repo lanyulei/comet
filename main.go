@@ -1,6 +1,6 @@
 package main
 
-import "github.com/lanyulei/comet/cmd"
+import "comet/cmd"
 
 /*
   @Author : lanyulei

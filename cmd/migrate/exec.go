@@ -2,8 +2,8 @@ package migrate
 
 import (
 	"fmt"
-	"github.com/lanyulei/comet/pkg/db"
-	"github.com/lanyulei/comet/pkg/logger"
+	"github.com/lanyulei/toolkit/db"
+	"github.com/lanyulei/toolkit/logger"
 	"os"
 	"strings"
 

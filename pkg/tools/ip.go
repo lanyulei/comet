@@ -2,7 +2,7 @@ package tools
 
 import (
 	"encoding/json"
-	"github.com/lanyulei/comet/pkg/logger"
+	"github.com/lanyulei/toolkit/logger"
 	"io"
 	"net"
 	"net/http"

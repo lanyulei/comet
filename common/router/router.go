@@ -1,11 +1,11 @@
 package router
 
 import (
+	v1 "comet/common/router/v1"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
-	v1 "github.com/lanyulei/comet/common/router/v1"
-	"github.com/lanyulei/comet/pkg/logger"
-	"github.com/lanyulei/comet/pkg/tools/response"
+	"github.com/lanyulei/toolkit/logger"
+	"github.com/lanyulei/toolkit/response"
 	"net/http"
 )
 

@@ -1,19 +1,17 @@
 package migrate
 
 import (
+	"comet/app/system/models"
+	migrate "comet/cmd/migrate/models"
+	"comet/cmd/migrate/sql"
 	"fmt"
-	"github.com/lanyulei/comet/apps/system/models"
-	migrate "github.com/lanyulei/comet/cmd/migrate/models"
-	"github.com/lanyulei/comet/cmd/migrate/sql"
-	"github.com/lanyulei/comet/pkg/db"
-	"github.com/lanyulei/comet/pkg/logger"
+	"github.com/lanyulei/toolkit/db"
+	"github.com/lanyulei/toolkit/logger"
+	"github.com/liushuochen/gotable"
+	"gorm.io/gorm"
 	"os"
 	"strconv"
 	"time"
-
-	"github.com/liushuochen/gotable"
-
-	"gorm.io/gorm"
 )
 
 func autoMigrate(data bool) {

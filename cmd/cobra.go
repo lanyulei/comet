@@ -1,10 +1,10 @@
 package cmd
 
 import (
+	"comet/cmd/migrate"
+	"comet/cmd/server"
 	"errors"
 	"fmt"
-	"github.com/lanyulei/comet/cmd/migrate"
-	"github.com/lanyulei/comet/cmd/server"
 	"os"
 
 	"github.com/spf13/cobra"

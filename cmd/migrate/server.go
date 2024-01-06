@@ -2,8 +2,7 @@ package migrate
 
 import (
 	"fmt"
-	"github.com/lanyulei/comet/pkg/db"
-	"github.com/lanyulei/comet/pkg/logger"
+	"github.com/lanyulei/toolkit/logger"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -48,10 +47,18 @@ func setup() {
 	}
 
 	// 日志配置
-	logger.Setup()
+	logger.Setup(
+		viper.GetString(`log.level`),
+		viper.GetString(`log.path`),
+		viper.GetInt(`log.maxsize`),
+		viper.GetBool(`log.localtime`),
+		viper.GetBool(`log.compress`),
+		viper.GetBool(`log.console`),
+		map[string]interface{}{},
+	)
 
 	// 数据库配置
-	db.Setup()
+	//db.Setup()
 }
 
 func run() (err error) {

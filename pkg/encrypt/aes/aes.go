@@ -4,7 +4,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
-	"github.com/lanyulei/comet/pkg/logger"
+	"github.com/lanyulei/toolkit/logger"
 	"io"
 )
 

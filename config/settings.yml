@@ -1,6 +1,6 @@
 server:
-  host: localhost
-  port: 8020
+  host: 192.168.31.94
+  port: 8060
   mode: dev
 ssl:
   enable: false
@@ -20,16 +20,7 @@ db:
   maxOpenConn: 20000
   maxIdleConn: 0
   connMaxLifetime: 60
-redis:
-  host: 127.0.0.1
-  port: 6379
-  password: 123456
-  db: 4
 jwt:
   expires: 60
-  secret: 7c61aa49bd124736917207eb960cede9
+  secret: xxx
   issuer: comet
-nebula:
-  url: http://localhost:8000
-kubernetes:
-  configPath: /Users/mac/lanyulei/project/golang/comet/config

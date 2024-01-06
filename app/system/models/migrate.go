@@ -1,6 +1,6 @@
 package models
 
-import "github.com/lanyulei/comet/common/models"
+import "comet/common/models"
 
 /*
   @Author : lanyulei

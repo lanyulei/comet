@@ -1,10 +1,11 @@
 package request
 
 import (
+	"comet/pkg/kubernetes/client"
+	"comet/pkg/respstatus"
 	"fmt"
-	"github.com/lanyulei/comet/pkg/kubernetes/client"
-	"github.com/lanyulei/comet/pkg/logger"
-	"github.com/lanyulei/comet/pkg/tools/response"
+	"github.com/lanyulei/toolkit/logger"
+	"github.com/lanyulei/toolkit/response"
 	"k8s.io/apimachinery/pkg/util/proxy"
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/apiserver/pkg/endpoints/filters"
@@ -25,7 +26,7 @@ type responder struct{}
 func (r *responder) Error(w http.ResponseWriter, _ *http.Request, err error) {
 	logger.Error(err)
 	responsewriters.WriteRawJSON(http.StatusOK, response.Response{
-		Code:    response.UnknownError.Code,
+		Code:    respstatus.UnknownError.Code,
 		Message: fmt.Sprintf("调用 k8s 接口失败，错误：%s", err.Error()),
 	}, w)
 }

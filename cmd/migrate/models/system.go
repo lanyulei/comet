@@ -1,6 +1,6 @@
 package models
 
-import "github.com/lanyulei/comet/apps/system/models"
+import "comet/app/system/models"
 
 var SystemModels = []interface{}{
 	&models.Migrate{},
