@@ -132,5 +132,6 @@ require (
 
 replace (
 	github.com/imdario/mergo v1.0.0 => dario.cat/mergo v1.0.0
+	github.com/golang/protobuf => google.golang.org/protobuf v1.32.0
 	github.com/lanyulei/toolkit => ../toolkit
 )
