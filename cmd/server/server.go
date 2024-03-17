@@ -10,7 +10,6 @@ import (
 	"fmt"
 	"github.com/lanyulei/toolkit/logger"
 	"github.com/lanyulei/toolkit/redis"
-	"github.com/lanyulei/toolkit/service"
 	"io"
 	"net/http"
 	"os"
@@ -67,9 +66,6 @@ func setup() {
 	//	viper.GetInt("db.connMaxLifetime"),
 	//)
 
-	// Redis 链接
-	redis.Setup(viper.GetString("redis.host"), viper.GetString("redis.password"), viper.GetInt("redis.port"), viper.GetInt("redis.db"))
-
 	// 加载 kubernetes 配置
 	client.NewClients()
 }
@@ -118,9 +114,6 @@ func run() (err error) {
 	fmt.Printf("-  Network: http://%s:%d/ \r\n", tools.GetLocalHost(), viper.GetInt("server.port"))
 	fmt.Printf("%s Enter Control + C Shutdown Server \r\n\n", time.Now().Format("2006-01-02 15:04:05.000"))
 	// 等待中断信号以优雅地关闭服务器（设置 5 秒的超时时间）
-
-	// 服务注册
-	service.Register(viper.GetInt("server.port"), prefix)
 
 	quit := make(chan os.Signal)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGQUIT, syscall.SIGKILL)

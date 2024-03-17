@@ -7,12 +7,13 @@ ssl:
   key: keystring
   pem: temp/pem.pem
 log:
-  level: debug
-  maxSize: 1024
-  maxAge: 30
-  maxBackups: 10
+  level: info
+  maxsize: 1024
+  maxage: 30
+  maxbackups: 10
   localtime: 1
   compress: 1
+  console: 1
   path: log/comet.log
 db:
   type: postgres
