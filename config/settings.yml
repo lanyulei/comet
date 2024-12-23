@@ -1,5 +1,5 @@
 server:
-  host: 192.168.31.94
+  host: localhost
   port: 8060
   mode: dev
 ssl:
@@ -15,12 +15,6 @@ log:
   compress: 1
   console: 1
   path: log/comet.log
-db:
-  type: postgres
-  dsn: host=localhost user=postgres password=123456 dbname=comet port=5432 sslmode=disable TimeZone=Asia/Shanghai
-  maxOpenConn: 20000
-  maxIdleConn: 0
-  connMaxLifetime: 60
 jwt:
   expires: 60
   secret: xxx
