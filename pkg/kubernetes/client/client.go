@@ -26,7 +26,7 @@ func NewClients() {
 	)
 
 	// 1. 加载配置，生成配置文件对象。
-	config, err = clientcmd.BuildConfigFromFlags("", "/Users/mac/.kube/config")
+	config, err = clientcmd.BuildConfigFromFlags("", "/Users/lanyulei/.kube/config")
 	if err != nil {
 		return
 	}

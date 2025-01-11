@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"comet/cmd/migrate"
 	"comet/cmd/server"
 	"errors"
 	"fmt"
@@ -30,7 +29,6 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(server.StartCmd)
-	rootCmd.AddCommand(migrate.StartCmd)
 }
 
 func tip() {
